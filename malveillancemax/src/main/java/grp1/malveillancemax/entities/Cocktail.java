@@ -6,32 +6,35 @@ import jakarta.persistence.Transient;
 
 public class Cocktail extends Boisson{
 
-    // @Transient
+    @Transient
     private Set<AlcoolFort> alcools;
     
-    // @Transient
+    @Transient
     private Set<Soft> softs;
     
     public Cocktail(){
         
     }
 
-    public Cocktail(String name, double prix, Set<AlcoolFort> alcools) {
+    public Cocktail(String name, double prix) {
         super(name, prix);
+    }
+
+    public Set<AlcoolFort> getAlcools() {
+        return alcools;
+    }
+
+    public void setAlcools(Set<AlcoolFort> alcools) {
         this.alcools = alcools;
     }
 
-    
-    // public Cocktail(String name, double prix, Set<Soft> softs) {
-    //     super(name, prix);
-    //     this.softs = softs;
-    // }
+    public Set<Soft> getSofts() {
+        return softs;
+    }
 
-    public Cocktail(String name, double prix, Set<AlcoolFort> alcools, Set<Soft> softs) {
-        super(name, prix);
-        this.alcools = alcools;
+    public void setSofts(Set<Soft> softs) {
         this.softs = softs;
-    }
-    
+    } 
+
     
  }
