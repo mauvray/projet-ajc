@@ -16,22 +16,8 @@ public class Cocktail extends Boisson{
         
     }
 
-    public Cocktail(String name, double prix, Set<AlcoolFort> alcools) {
+    public Cocktail(String name, double prix) {
         super(name, prix);
-        this.alcools = alcools;
     }
-
-    
-    // public Cocktail(String name, double prix, Set<Soft> softs) {
-    //     super(name, prix);
-    //     this.softs = softs;
-    // }
-
-    public Cocktail(String name, double prix, Set<AlcoolFort> alcools, Set<Soft> softs) {
-        super(name, prix);
-        this.alcools = alcools;
-        this.softs = softs;
-    }
-    
-    
+        
  }

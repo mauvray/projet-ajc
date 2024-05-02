@@ -17,6 +17,10 @@ public abstract class Boisson {
 
     }
 
+    public Boisson(String nom){
+        this.nom=nom;
+    }
+
     public Boisson(String nom, double prix){
         this.nom = nom;
         this.prix = prix;
