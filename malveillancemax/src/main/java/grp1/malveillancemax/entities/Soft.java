@@ -1,5 +1,10 @@
 package grp1.malveillancemax.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="soft")
 public class Soft extends Boisson{
 
     private String categorie;
