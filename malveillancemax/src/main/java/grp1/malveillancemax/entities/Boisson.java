@@ -1,69 +1,66 @@
 package grp1.malveillancemax.entities;
 
+import java.util.Objects;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class Boisson {
-
-    private Long Id;
-    private String name;
+public abstract class Boisson {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nom;
     private double prix;
 
-    public Boisson() {
-        
-    }
-
-    public Boisson(String name){
+    public Boisson(){
 
     }
 
-    public Boisson(String name, double prix) {
-        this.name = name;
+    public Boisson(String nom, double prix){
+        this.nom = nom;
         this.prix = prix;
     }
-    public Long getId() {
-        return Id;
+    
+    public Long getId(){
+        return id;
     }
-    public void setId(Long id) {
-        Id = id;
+
+    public void setId(Long id){
+        this.id=id;
     }
-    public String getName() {
-        return name;
+
+    public String getNom(){
+        return nom;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setNom(String nom){
+        this.nom=nom;
     }
-    public double getPrix() {
+
+    public double getPrix(){
         return prix;
     }
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((Id == null) ? 0 : Id.hashCode());
-        return result;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Boisson other = (Boisson) obj;
-        if (Id == null) {
-            if (other.Id != null)
-                return false;
-        } else if (!Id.equals(other.Id))
-            return false;
-        return true;
+
+    public void setPrix(double prix){
+        this.prix=prix;
     }
 
-    
-    
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+    @Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Boisson other = (Boisson) obj;
+		return Objects.equals(id, other.id);
+	}
+
 }
