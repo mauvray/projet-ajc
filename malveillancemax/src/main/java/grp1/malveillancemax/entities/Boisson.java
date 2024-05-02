@@ -1,4 +1,10 @@
-package main.java.grp1.malveillancemax;
+package grp1.malveillancemax.entities;
+
+import java.util.Objects;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class Boisson {
@@ -53,7 +59,7 @@ public abstract class Boisson {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Personne other = (Boisson) obj;
+		Boisson other = (Boisson) obj;
 		return Objects.equals(id, other.id);
 	}
 

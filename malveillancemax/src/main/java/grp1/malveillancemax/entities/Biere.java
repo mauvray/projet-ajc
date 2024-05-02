@@ -1,6 +1,9 @@
-package main.java.grp1.malveillancemax.entities;
+package grp1.malveillancemax.entities;
 
-import main.java.grp1.malveillancemax.Boisson;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "biere")
