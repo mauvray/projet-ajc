@@ -69,5 +69,6 @@ public class PlancheService {
     public void checkId(Long id) {
         if (id==null){
             throw new PlancheException("id null");
-    } 
+    	} 
+	}
 }
