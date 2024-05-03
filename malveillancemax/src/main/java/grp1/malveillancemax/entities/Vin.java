@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 @Table(name = "vin")
 @AttributeOverride(name = "id", column = @Column(name = "vin_id"))
 @AttributeOverride(name = "nom", column = @Column(name = "Vin_nom"))
-@AttributeOverride(name = "prix", column = @Column(name = "Vin_nom"))
+@AttributeOverride(name = "prix", column = @Column(name = "Vin_prix"))
 public class Vin extends Boisson {
     @Column(name="Vin_provenance")
     private String provenance;
@@ -23,8 +23,9 @@ public class Vin extends Boisson {
 
     }
 
-    public Vin(String nom, double prix, String provenance, ServiceVin serviceVin) {
+    public Vin(String nom, double prix, String provenance, String couleur, ServiceVin serviceVin) {
         super(nom,prix);
+        this.couleur = couleur;
         this.provenance = provenance;
         this.serviceVin = serviceVin;
     }
