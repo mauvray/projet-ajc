@@ -3,11 +3,14 @@ package grp1.malveillancemax.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import grp1.malveillancemax.entities.Planche;
+import grp1.malveillancemax.exceptions.BiereException;
 import grp1.malveillancemax.exceptions.PlancheException;
 import grp1.malveillancemax.repositories.PlancheRepository;
 
+@Service
 public class PlancheService {
 
     @Autowired
@@ -64,6 +67,7 @@ public class PlancheService {
 	}
 
     public void checkId(Long id) {
-        
+        if (id==null){
+            throw new PlancheException("id null");
     } 
 }

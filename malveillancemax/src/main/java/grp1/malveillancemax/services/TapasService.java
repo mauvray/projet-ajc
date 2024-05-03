@@ -3,14 +3,13 @@ package grp1.malveillancemax.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import grp1.malveillancemax.entities.Tapas;
 import grp1.malveillancemax.exceptions.TapasException;
 import grp1.malveillancemax.repositories.TapasRepository;
 
-/**
- * TapasService
- */
+@Service
 public class TapasService {
 
     @Autowired
