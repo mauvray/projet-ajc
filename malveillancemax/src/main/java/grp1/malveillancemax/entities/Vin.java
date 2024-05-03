@@ -30,6 +30,10 @@ public class Vin extends Boisson {
         this.serviceVin = serviceVin;
     }
 
+    public Vin(String nom, double prix){
+        super(nom, prix);
+    }
+
     public String getProvenance() {
         return provenance;
     }

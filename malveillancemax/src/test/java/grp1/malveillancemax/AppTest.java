@@ -6,7 +6,7 @@ import grp1.malveillancemax.entities.Biere;
 import grp1.malveillancemax.entities.Cidre;
 import grp1.malveillancemax.entities.ServiceBiere;
 import grp1.malveillancemax.entities.ServiceCidre;
-import grp1.malveillancemax.repositories.DaoCidre;
+
 
 public class AppTest{
     public static void main(String[] args) {
