@@ -9,8 +9,9 @@ import jakarta.persistence.Table;
 @Table(name = "biere")
 @AttributeOverride(name = "id", column = @Column(name = "biere_id"))
 @AttributeOverride(name = "nom", column = @Column(name = "biere_nom"))
-@AttributeOverride(name = "prix", column = @Column(name = "biere_nom"))
+@AttributeOverride(name = "prix", column = @Column(name = "biere_prix"))
 public class Biere extends Boisson {
+
     @Column(name="biere_style")
     private String style;
     @Column(name="biere_service")
