@@ -25,8 +25,8 @@ import grp1.malveillancemax.services.TapasService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/client")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/tapas")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class TapasRestController {
 
     @Autowired

@@ -1,4 +1,4 @@
-package grp1.malveillancemax.services;
+package grp1.malveillancemax;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,12 +12,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
 import grp1.malveillancemax.exceptions.PlancheException;
+import grp1.malveillancemax.services.PlancheService;
 import grp1.malveillancemax.entities.Planche;
 
 @SpringBootTest
-@Transactional
-@Rollback
-class PlancheServiceTest {
+// @Transactional
+// @Rollback
+public class PlancheServiceTest {
 
 	@Autowired
 	private PlancheService plancheSrv;
