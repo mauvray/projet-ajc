@@ -83,7 +83,16 @@ public class AlcoolFortService {
         return daoAlcoolFort.save(alcool);
     }
 
-    public List<AlcoolFort> getAll(){
+    public List<AlcoolFort> getAllAlcool(){
         return daoAlcoolFort.findAll();
+    }
+
+    public AlcoolFort getByIdWithCocktails(Long id){
+        if (id == null){
+            throw new ReferenceNullException();
+        }
+        return daoAlcoolFort.findByIdFetchCocktails(id).orElseThrow(() -> {
+            throw new NotFoundException();
+        });
     }
 }
