@@ -25,12 +25,20 @@ public class SoftResponse {
     @Autowired
     private CocktailService cocktailSvc;
 
+    // public SoftResponse(Long id, String nom, double prix, string categorie) {
+	// 	super();
+	// 	this.id = id;
+	// 	this.nom = nom;
+	// 	this.prix = prix;
+    //  this.categorie = categorie;
+	// }
+
     public SoftResponse() {
     }
 
-      public SoftResponse(Soft soft){
+    public SoftResponse(Soft soft){
         BeanUtils.copyProperties(soft, this, "cocktails");
-    }    
+    } 
 
     public SoftResponse(Soft soft, boolean cocktail){
         BeanUtils.copyProperties(soft, this, "cocktails");

@@ -1,6 +1,8 @@
 package grp1.malveillancemax.dto.responses;
 
 
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -36,6 +38,7 @@ public class CocktailResponse {
             setSoft(new SoftResponse(cocktail.getSoft()));
         }
     }
+
 
     public Long getId() {
         return id;

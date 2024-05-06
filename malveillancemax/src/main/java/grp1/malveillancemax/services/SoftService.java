@@ -6,11 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import grp1.malveillancemax.dto.requests.SoftRequest;
 import grp1.malveillancemax.entities.Soft;
 import grp1.malveillancemax.exception.NotFoundException;
 import grp1.malveillancemax.exception.ReferenceNullException;
 import grp1.malveillancemax.exception.SoftException;
 import grp1.malveillancemax.repositories.DaoSoft;
+//import jakarta.transaction.Transactional;
 
 @Service
 public class SoftService {
@@ -40,15 +42,27 @@ public class SoftService {
     }
 
 ////MAJ
-    public Soft update(Soft soft) {
-        if (soft == null) {
-            throw new SoftException("soft inconnu");
-        }
-        if (soft.getId() == null) {
-            throw new SoftException("soft inconnu");
-        }
-        return daoSoft.save(soft);
+    // @Transactional(rollbackFor = Exception.class)
+    public Soft update(Long id, SoftRequest request) {
+    	
+    	Soft soft = daoSoft.findById(id)
+    				.orElseThrow(() -> new NotFoundException("soft non-existant"));
+    			
+    	soft.setNom(request.getNom());
+    	soft.setPrix(request.getPrix());
+    	soft.setCategorie(request.getCategorie());
+    	
+		return daoSoft.save(soft);
     }
+    // public Soft update(Soft soft) {
+    //     if (soft == null) {
+    //         throw new SoftException("soft inconnu");
+    //     }
+    //     if (soft.getId() == null) {
+    //         throw new SoftException("soft inconnu");
+    //     }
+    //     return daoSoft.save(soft);
+    // }
     // public Soft majPrixSoft(Soft soft, double prix) {
     //     if (soft == null) {
     //         throw new ReferenceNullException();
@@ -129,4 +143,13 @@ public class SoftService {
     public List<Soft> getAll() {
         return daoSoft.findAll();
     }
+
+	public Soft getByIdWithCocktails(Long id) {
+		if (id == null){
+            throw new ReferenceNullException();
+        }
+        return daoSoft.findByIdFetchCocktails(id).orElseThrow(() -> {
+            throw new NotFoundException();
+        });
+	}
 }

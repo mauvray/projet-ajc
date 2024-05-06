@@ -28,7 +28,6 @@ import grp1.malveillancemax.dto.responses.AlcoolFortResponse;
 import grp1.malveillancemax.dto.responses.JsonViews;
 import grp1.malveillancemax.entities.AlcoolFort;
 import grp1.malveillancemax.services.AlcoolFortService;
-import grp1.malveillancemax.services.CocktailService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -39,8 +38,6 @@ public class AlcoolFortRestController {
 
     @Autowired
     public AlcoolFortService alcScv;
-    @Autowired
-    public CocktailService cockSv;
 
     @GetMapping("")
     @JsonView(JsonViews.Alcool.class)

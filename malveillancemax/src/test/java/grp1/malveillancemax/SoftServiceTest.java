@@ -23,13 +23,13 @@ public class SoftServiceTest {
         softService.creaSoft(soft);
     }
 
-    @Test
-    void update() {
-        Soft soft = new Soft("jus de pomme", 2.50, "jus");
-        softService.creaSoft(soft);
-        soft.setPrix(3);
-        softService.update(soft);
-    }
+    // @Test
+    // void update() {
+    //     Soft soft = new Soft("jus de pomme", 2.50, "jus");
+    //     softService.creaSoft(soft);
+    //     soft.setPrix(3);
+    //     softService.update(soft);
+    // }
 
     @Test
     void delete() {

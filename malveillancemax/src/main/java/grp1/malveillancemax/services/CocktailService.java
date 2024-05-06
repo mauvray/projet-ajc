@@ -109,4 +109,23 @@ public class CocktailService {
     public List<Cocktail> getAll(){
         return daoCocktail.findAll();
     }
+
+    public Cocktail getByIdWithAlcools(Long id){
+        if (id == null){
+            throw new ReferenceNullException();
+        }
+        return daoCocktail.findByIdFetchAlcool(id).orElseThrow(() -> {
+			throw new NotFoundException();
+		});
+    }
+
+    public Cocktail getByIdWithSofts(Long id){
+        if (id == null){
+            throw new ReferenceNullException();
+        }
+        return daoCocktail.findByIdFetchSoft(id).orElseThrow(() -> {
+            throw new NotFoundException();
+        });
+    }
+
 }
