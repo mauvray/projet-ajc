@@ -14,13 +14,19 @@ import grp1.malveillancemax.exception.CocktailException;
 import grp1.malveillancemax.exception.NotFoundException;
 import grp1.malveillancemax.exception.ReferenceNullException;
 import grp1.malveillancemax.exception.SoftException;
+import grp1.malveillancemax.repositories.DaoAlcoolFort;
 import grp1.malveillancemax.repositories.DaoCocktail;
+import grp1.malveillancemax.repositories.DaoSoft;
 
 @Service
 public class CocktailService {
 
     @Autowired
     DaoCocktail daoCocktail;
+    @Autowired
+    DaoSoft daoSoft;
+    @Autowired
+    DaoAlcoolFort daoAlcoolFort;
 
     public Cocktail creCocktail(String name, double prix){
         return creationCocktail(new Cocktail(name, prix));
@@ -32,6 +38,12 @@ public class CocktailService {
         }
         if (cocktail.getNom() == null || cocktail.getNom().isBlank()){
             throw new CocktailException("nom cocktail obligatoire");
+        }
+        if (!daoSoft.existsById(cocktail.getSoft().getId())){
+            throw new CocktailException("le soft n'existe pas");
+        }
+        if (!daoAlcoolFort.existsById(cocktail.getAlcool().getId())){
+            throw new CocktailException("l'alcool fort n'existe pas");
         }
         return daoCocktail.save(cocktail);
     }
@@ -49,10 +61,10 @@ public class CocktailService {
         
     public void ajouterSoft(Soft soft, Cocktail cocktail) {
         if(soft == null){
-            throw new SoftException();
+            throw new SoftException("Soft was null");
         }
-        if (cocktail.getSoft() != null){
-            soft = cocktail.getSoft();
+        if (cocktail.getSoft() != null) {
+            throw new SoftException("Cocktail already got a soft");
         }
         cocktail.setSoft(soft);
         daoCocktail.save(cocktail);

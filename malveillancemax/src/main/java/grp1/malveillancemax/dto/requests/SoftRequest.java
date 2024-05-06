@@ -3,7 +3,8 @@ package grp1.malveillancemax.dto.requests;
 import jakarta.validation.constraints.NotBlank;
 
 public class SoftRequest {
-private Long id;
+    
+    private Long id;
     @NotBlank
     private String nom;
     private double prix;

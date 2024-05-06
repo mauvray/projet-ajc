@@ -14,6 +14,8 @@ import grp1.malveillancemax.services.CocktailService;
 public class SoftResponse {
 
     @JsonView(JsonViews.Generic.class)
+    private Long id;
+    @JsonView(JsonViews.Generic.class)
     private String nom;
     @JsonView(JsonViews.Generic.class)
     private double prix;
@@ -47,6 +49,14 @@ public class SoftResponse {
             .map(cockt -> new CocktailResponse(cocktailSvc.getById(cockt.getId())))
             .collect(Collectors.toSet());
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNom() {
