@@ -52,4 +52,14 @@ public class BoissonTest {
 
     }
 
+    @Test
+    void insertCocktail(){
+        Boisson cocktail = new Boisson("Tequila Sunrise", 8, "cocktail");
+        Boisson vodka = new Boisson("vodka",4,"alcoolFort");
+        cocktail.setAlcool(vodka);
+        boissonSrv.creationBoisson(vodka);
+        boissonSrv.creationBoisson(cocktail);
+
+    }
+
 }

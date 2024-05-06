@@ -16,6 +16,9 @@ public class BoissonResponse {
     private String provenance;
     private String style;
     private String couleur;
+    private BoissonResponse alcool;
+    private BoissonResponse soft;
+    
 
     public BoissonResponse(){
 
@@ -88,6 +91,10 @@ public class BoissonResponse {
     public void setCouleur(String couleur) {
         this.couleur = couleur;
     }
+
+
+
+    
 
     
 }

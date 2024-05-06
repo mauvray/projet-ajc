@@ -17,6 +17,8 @@ public class BoissonRequest {
     private String provenance;
     private String style;
     private String couleur;
+    private Long alcoolId;
+    private Long softId;
 
     public BoissonRequest(){
 
@@ -85,6 +87,20 @@ public class BoissonRequest {
     public void setCouleur(String couleur) {
         this.couleur = couleur;
     }
+    public Long getSoftId() {
+        return softId;
+    }
 
+    public void setSoftId(Long softId) {
+        this.softId = softId;
+    }
+
+    public Long getAlcoolId() {
+        return alcoolId;
+    }
+
+    public void setAlcoolId(Long alcoolId) {
+        this.alcoolId = alcoolId;
+    }
     
 }
