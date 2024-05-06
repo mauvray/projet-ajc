@@ -94,6 +94,14 @@ public class BoissonService {
 
     public void deleteBoisson(Long id){
         Boisson boisson = getById(id);
+        if(!daoBoisson.findByAlcool(boisson).isEmpty()){
+            List<Boisson> cocktails = daoBoisson.findByAlcool(boisson);
+            cocktails.stream().forEach(c -> daoBoisson.delete(c));
+        }
+        if(daoBoisson.findBySoft(boisson).isEmpty()){
+            List<Boisson> cocktails = daoBoisson.findBySoft(boisson);
+            cocktails.stream().forEach(c -> daoBoisson.delete(c));
+        }
         daoBoisson.delete(boisson);
     }
 

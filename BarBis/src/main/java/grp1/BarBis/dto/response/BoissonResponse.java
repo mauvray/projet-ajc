@@ -3,20 +3,32 @@ package grp1.BarBis.dto.response;
 
 import org.springframework.beans.BeanUtils;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import grp1.BarBis.entities.Boisson;
 import grp1.BarBis.entities.Services;
 
 
 public class BoissonResponse {
+    @JsonView(JsonViews.Basic.class)
     private Long id;
+    @JsonView(JsonViews.Basic.class)
     private String nom;
+    @JsonView(JsonViews.Basic.class)
     private double prix;
+    @JsonView(JsonViews.Basic.class)
     private String categorie;
+    @JsonView(JsonViews.Basic.class)
     private Services service;
+    @JsonView(JsonViews.Basic.class)
     private String provenance;
+    @JsonView(JsonViews.Basic.class)
     private String style;
+    @JsonView(JsonViews.Basic.class)
     private String couleur;
+    @JsonView(JsonViews.CocktailAvecSoftEtAlcool.class)
     private BoissonResponse alcool;
+    @JsonView(JsonViews.CocktailAvecSoftEtAlcool.class)
     private BoissonResponse soft;
     
 

@@ -2,6 +2,7 @@ package grp1.BarBis.repositories;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import grp1.BarBis.entities.Boisson;
@@ -9,6 +10,7 @@ import grp1.BarBis.entities.Services;
 
 public interface BoissonDao extends JpaRepository<Boisson,Long> {
 
+    Optional <Boisson> findById(Long id);
     List<Boisson> findByNomContainingIgnoreCase(String nom);
     List<Boisson> findByCategorie(String categorie);
     List<Boisson> findByService(Services service);

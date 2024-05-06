@@ -21,8 +21,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import grp1.BarBis.dto.request.BoissonRequest;
 import grp1.BarBis.dto.response.BoissonResponse;
+import grp1.BarBis.dto.response.JsonViews;
 import grp1.BarBis.entities.Boisson;
 import grp1.BarBis.services.BoissonService;
 import jakarta.validation.Valid;
@@ -37,52 +40,61 @@ public class BoissonRestController {
     private BoissonService boissonSrv;
 
     @GetMapping("")
+    @JsonView(JsonViews.Basic.class)
     public List<BoissonResponse> getAll(){
         return boissonSrv.getAll().stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
-    @GetMapping("/vin")
-    public List<BoissonResponse> getVin(){
-        return boissonSrv.getByCategorie("vin").stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
+
+    @GetMapping("/categorie/{categorie}")
+    @JsonView(JsonViews.Basic.class)
+    public List<BoissonResponse> getCategorie(@PathVariable String categorie){
+        return boissonSrv.getByCategorie(categorie).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
-    @GetMapping("/cidre")
-    public List<BoissonResponse> getCidre(){
-        return boissonSrv.getByCategorie("cidre").stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
+
+    @GetMapping("/cocktail/alcool/{id}")
+    @JsonView(JsonViews.Basic.class)
+    public List<BoissonResponse> getCocktailByAlcool(@PathVariable Long id){
+        Boisson alcool = boissonSrv.getById(id);
+        return boissonSrv.getByAlcool(alcool).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
-    @GetMapping("/biere")
-    public List<BoissonResponse> getBiere(){
-        return boissonSrv.getByCategorie("biere").stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
+    @GetMapping("/cocktail/soft/{id}")
+    @JsonView(JsonViews.Basic.class)
+    public List<BoissonResponse> getCocktailBySoft(@PathVariable Long id){
+        Boisson soft = boissonSrv.getById(id);
+        return boissonSrv.getBySoft(soft).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
-    @GetMapping("/cocktail")
-    public List<BoissonResponse> getCocktail(){
-        return boissonSrv.getByCategorie("cocktail").stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
-    }
+   
 
-    @GetMapping("/soft")
-    public List<BoissonResponse> getSoft(){
-        return boissonSrv.getByCategorie("soft").stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
-    }
-
-    @GetMapping("/{nom}")
+    @GetMapping("/nom/{nom}")
+    @JsonView(JsonViews.Basic.class)
     public List<BoissonResponse> getByNom(@PathVariable String nom){
         return boissonSrv.getByNom(nom).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
+    @JsonView(JsonViews.Basic.class)
     public BoissonResponse getByIdBoisson(@PathVariable Long id){
         return new BoissonResponse(boissonSrv.getById(id));
     }
 
     @PostMapping("")
+    @JsonView(JsonViews.Basic.class)
     public BoissonResponse create(@Valid @RequestBody BoissonRequest boissonRequest, BindingResult br){
         if(br.hasErrors()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         Boisson b = new Boisson();
         BeanUtils.copyProperties(boissonRequest, b);
+        if(boissonRequest.getAlcoolId()!=null){
+            b.setAlcool(boissonSrv.getById(boissonRequest.getAlcoolId()));
+        }
+        if(boissonRequest.getSoftId()!=null){
+         b.setSoft(boissonSrv.getById(boissonRequest.getSoftId()));
+        }
         return new BoissonResponse(boissonSrv.creationBoisson(b));
     }
 
