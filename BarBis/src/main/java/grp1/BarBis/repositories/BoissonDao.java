@@ -15,6 +15,8 @@ public interface BoissonDao extends JpaRepository<Boisson,Long> {
     List<Boisson> findByProvenance(String provenance);
     List<Boisson> findByCouleur(String couleur);
     List<Boisson> findByStyle(String style);
+    List<Boisson> findByAlcool(Boisson alcool);
+    List<Boisson> findBySoft(Boisson soft);
 
     
 } 

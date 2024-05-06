@@ -82,6 +82,14 @@ public class BoissonService {
         return daoBoisson.findByNomContainingIgnoreCase(nom);
     }
 
+    public List<Boisson> getByAlcool(Boisson alcool){
+        return daoBoisson.findByAlcool(alcool);
+    }
+
+    public List<Boisson> getBySoft(Boisson soft){
+        return daoBoisson.findBySoft(soft);
+    }
+
     ////////////////////////////////////////////////
 
     public void deleteBoisson(Long id){
