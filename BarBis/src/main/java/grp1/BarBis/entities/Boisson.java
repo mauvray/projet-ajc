@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 import grp1.BarBis.entities.Services;
 
@@ -31,6 +30,10 @@ public class Boisson {
     private String style;
     @Column(name="boisson_couleur")
     private String couleur;
+    @Column(name="boisson_cocktail_soft")
+    private Boisson soft;
+    @Column(name="boisson_cocktail_alcool")
+    private Boisson alcool;
     
     public Boisson(){
 
@@ -130,6 +133,22 @@ public class Boisson {
 
     public void setCouleur(String couleur) {
         this.couleur = couleur;
+    }
+
+    public Boisson getSoft() {
+        return soft;
+    }
+
+    public void setSoft(Boisson soft) {
+        this.soft = soft;
+    }
+
+    public Boisson getAlcool() {
+        return alcool;
+    }
+
+    public void setAlcool(Boisson alcool) {
+        this.alcool = alcool;
     }
 
 

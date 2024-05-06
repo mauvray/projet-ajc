@@ -66,6 +66,11 @@ public class BoissonRestController {
         return boissonSrv.getByCategorie("soft").stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
+    @GetMapping("/{nom}")
+    public List<BoissonResponse> getByNom(@PathVariable String nom){
+        return boissonSrv.getByNom(nom).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
+    }
+
     @GetMapping("/{id}")
     public BoissonResponse getByIdBoisson(@PathVariable Long id){
         return new BoissonResponse(boissonSrv.getById(id));

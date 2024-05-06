@@ -78,6 +78,10 @@ public class BoissonService {
         return daoBoisson.findByService(service);
     }
 
+    public List<Boisson> getByNom(String nom){
+        return daoBoisson.findByNomContainingIgnoreCase(nom);
+    }
+
     ////////////////////////////////////////////////
 
     public void deleteBoisson(Long id){
