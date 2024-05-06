@@ -29,7 +29,9 @@ import grp1.malveillancemax.dto.responses.CocktailResponse;
 import grp1.malveillancemax.dto.responses.JsonViews;
 //import grp1.malveillancemax.entities.AlcoolFort;
 import grp1.malveillancemax.entities.Cocktail;
+import grp1.malveillancemax.services.AlcoolFortService;
 import grp1.malveillancemax.services.CocktailService;
+import grp1.malveillancemax.services.SoftService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -40,6 +42,10 @@ public class CocktailRestController {
 
     @Autowired
     public CocktailService cocktSvc;
+    @Autowired
+    public AlcoolFortService alcSvc;
+    @Autowired
+    public SoftService softSvc;
 
     @GetMapping("")
     @JsonView(JsonViews.Cocktail.class)
@@ -64,6 +70,16 @@ public class CocktailRestController {
         }
         Cocktail cockt = new Cocktail();
         BeanUtils.copyProperties(cocktReq, cockt);
+        if (cocktReq.getAlcoolId()==null && cocktReq.getSoftId()==null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        if (cocktReq.getAlcoolId()!=null) {
+            cocktSvc.ajouterAlcool(alcSvc.getById(cocktReq.getAlcoolId()), cockt);
+        }
+        if (cocktReq.getSoftId() != null){
+            cocktSvc.ajouterSoft(softSvc.getById(cocktReq.getSoftId()), cockt);
+        }
+       
         return new CocktailResponse(cocktSvc.creationCocktail(cockt));
     }
 

@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import grp1.malveillancemax.dto.requests.CocktailRequest;
 import grp1.malveillancemax.entities.AlcoolFort;
 import grp1.malveillancemax.entities.Cocktail;
 import grp1.malveillancemax.entities.Soft;
@@ -27,9 +29,9 @@ public class CocktailService {
     DaoSoft daoSoft;
     @Autowired
     DaoAlcoolFort daoAlcoolFort;
-
-    public Cocktail creCocktail(String name, double prix){
-        return creationCocktail(new Cocktail(name, prix));
+    
+    public Cocktail creationCocktail(String name, double prix){
+        return creationCocktail(new Cocktail(name, prix) );
     }
 
     public Cocktail creationCocktail(Cocktail cocktail){
@@ -39,30 +41,29 @@ public class CocktailService {
         if (cocktail.getNom() == null || cocktail.getNom().isBlank()){
             throw new CocktailException("nom cocktail obligatoire");
         }
-        if (!daoSoft.existsById(cocktail.getSoft().getId())){
-            throw new CocktailException("le soft n'existe pas");
-        }
-        if (!daoAlcoolFort.existsById(cocktail.getAlcool().getId())){
-            throw new CocktailException("l'alcool fort n'existe pas");
-        }
+        // if (!daoSoft.existsById(cocktail.getSoft().getId())){
+        //     throw new CocktailException("le soft n'existe pas");
+        // }
+        // if (!daoAlcoolFort.existsById(cocktail.getAlcool().getId())){
+        //     throw new CocktailException("l'alcool fort n'existe pas");
+        // }
+
+        // if  (!((daoSoft.existsById(softId) &&  alcoolId == 0) || (daoAlcoolFort.existsById(alcoolId)) &&  softId == 0)) {
+        //         throw new CocktailException("id soft ou alcool fort n'existe pas ou sont tous les deux nulls");
+        // }
+    
         return daoCocktail.save(cocktail);
     }
 
     public void ajouterAlcool(AlcoolFort alcool, Cocktail cocktail) {
-        if(alcool == null){
-            throw new AlcoolFortException();
-        }
         if (cocktail.getAlcool() != null){
-            alcool = cocktail.getAlcool();
+            throw new AlcoolFortException("Cocktail already got a alcool");
         }
         cocktail.setAlcool(alcool);
         daoCocktail.save(cocktail);
     }
         
     public void ajouterSoft(Soft soft, Cocktail cocktail) {
-        if(soft == null){
-            throw new SoftException("Soft was null");
-        }
         if (cocktail.getSoft() != null) {
             throw new SoftException("Cocktail already got a soft");
         }
