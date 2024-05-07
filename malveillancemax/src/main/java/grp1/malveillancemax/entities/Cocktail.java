@@ -16,11 +16,11 @@ import jakarta.persistence.Table;
 public class Cocktail extends Boisson{
 
     @ManyToOne
-    @JoinColumn(name="alcool_id",foreignKey = @ForeignKey(name="cocktail_alcool_id_fk"))
+    @JoinColumn(name="alcool_id",foreignKey = @ForeignKey(name="cocktail_alcool_id_fk"), nullable=true)
     private AlcoolFort alcool;
    
     @ManyToOne
-    @JoinColumn(name="soft_id",foreignKey = @ForeignKey(name="cocktail_soft_id_fk"))
+    @JoinColumn(name="soft_id",foreignKey = @ForeignKey(name="cocktail_soft_id_fk"), nullable=true)
     private Soft soft;
 
     @Column(name="cocktail_description", columnDefinition = "TEXT")

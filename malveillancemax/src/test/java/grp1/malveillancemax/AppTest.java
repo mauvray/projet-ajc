@@ -7,7 +7,7 @@ import grp1.malveillancemax.entities.Cidre;
 import grp1.malveillancemax.entities.Planche;
 import grp1.malveillancemax.entities.ServiceBiere;
 import grp1.malveillancemax.entities.ServiceCidre;
-import grp1.malveillancemax.repositories.DaoCidre;
+
 import grp1.malveillancemax.entities.Tapas;
 
 public class AppTest{

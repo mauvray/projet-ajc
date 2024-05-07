@@ -27,6 +27,10 @@ public class Cidre extends Boisson {
         this.serviceCidre = serviceCidre;
     }
 
+    public Cidre(String nom, double prix){
+        super(nom, prix);
+    }
+
     public String getProvenance() {
         return provenance;
     }
