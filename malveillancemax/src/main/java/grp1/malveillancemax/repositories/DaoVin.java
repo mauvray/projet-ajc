@@ -15,8 +15,8 @@ public interface DaoVin extends JpaRepository<Vin, Long> {
 
    List<Vin> findByCouleur(String nom);
    List<Vin> findByProvenance(String nom);
-   Optional<Vin> findById(Long id);
-   List<Vin> findByServiceVin(ServiceVin serviceVin);
+   // Optional<Vin> findById(Long id);
+   List<Vin> findByService(ServiceVin service);
    List<Vin> findByNomContainingIgnoreCase(String nom);
     
     

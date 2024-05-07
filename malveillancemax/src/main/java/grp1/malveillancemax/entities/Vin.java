@@ -14,7 +14,7 @@ public class Vin extends Boisson {
     @Column(name="Vin_provenance")
     private String provenance;
     @Column(name="Vin_service")
-    private ServiceVin serviceVin;
+    private ServiceVin service;
     @Column(name="Vin_couleur")
     private String couleur;
     
@@ -27,7 +27,7 @@ public class Vin extends Boisson {
         super(nom,prix);
         this.couleur = couleur;
         this.provenance = provenance;
-        this.serviceVin = serviceVin;
+        this.service = serviceVin;
     }
 
     public Vin(String nom, double prix){
@@ -43,11 +43,11 @@ public class Vin extends Boisson {
     }
 
     public ServiceVin getServiceVin() {
-        return serviceVin;
+        return service;
     }
 
-    public void setServiceVin(ServiceVin serviceVin) {
-        this.serviceVin = serviceVin;
+    public void setServiceVin(ServiceVin service) {
+        this.service = service;
     }
 
     public String getCouleur() {

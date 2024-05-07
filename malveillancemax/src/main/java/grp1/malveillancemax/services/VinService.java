@@ -73,8 +73,8 @@ public Vin createVin(Vin vin){
         return daoVin.findByNomContainingIgnoreCase(nom);
     }
 
-    public List<Vin> getByService(ServiceVin serviceVin){
-        return daoVin.findByServiceVin(serviceVin);
+    public List<Vin> getByService(ServiceVin service){
+        return daoVin.findByService(service);
     }
 
 /////////////////////////////////////////////////////////////////////
