@@ -45,8 +45,8 @@ public Vin createVin(Vin vin){
         return daoVin.save(vin);
     }
 
-    public Vin createVin(String nom, double prix, String provenance, String couleur, ServiceVin serviceVin){
-        return createVin(new Vin(nom, prix, provenance, couleur, serviceVin));
+    public Vin createVin(String nom, double prix, String provenance, String couleur, ServiceVin service){
+        return createVin(new Vin(nom, prix, provenance, couleur, service));
     }
 
 /////////////////////////////////////////////////////////////////:

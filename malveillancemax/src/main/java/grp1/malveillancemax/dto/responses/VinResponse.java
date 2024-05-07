@@ -2,17 +2,26 @@ package grp1.malveillancemax.dto.responses;
 
 import grp1.malveillancemax.entities.ServiceVin;
 import org.springframework.beans.BeanUtils;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import grp1.malveillancemax.entities.Vin;
 
 /**
  * VinResponse
  */
 public class VinResponse {
+    @JsonView(JsonViews.Generic.class)
     private Long id;
+    @JsonView(JsonViews.Generic.class)
     private String nom;
+    @JsonView(JsonViews.Generic.class)
     private double prix;
+    @JsonView(JsonViews.Generic.class)
     private String couleur;
+    @JsonView(JsonViews.Generic.class)
     private String provenance;
+    @JsonView(JsonViews.Generic.class)
     private ServiceVin service;
 
     public VinResponse(){

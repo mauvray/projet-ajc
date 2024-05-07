@@ -3,6 +3,8 @@ package grp1.malveillancemax.entities;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,6 +16,7 @@ public class Vin extends Boisson {
     @Column(name="Vin_provenance")
     private String provenance;
     @Column(name="Vin_service")
+    @Enumerated(EnumType.STRING)
     private ServiceVin service;
     @Column(name="Vin_couleur")
     private String couleur;

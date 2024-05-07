@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,7 @@ import jakarta.validation.Valid;
 
 import grp1.malveillancemax.entities.Vin;
 import grp1.malveillancemax.dto.requests.VinRequest;
+import grp1.malveillancemax.dto.responses.JsonViews;
 import grp1.malveillancemax.dto.responses.VinResponse;
 import grp1.malveillancemax.services.VinService;
 
@@ -59,6 +63,7 @@ public class VinRestController {
 
     @PostMapping("")
     @ResponseStatus(code=HttpStatus.CREATED)
+    @JsonView(JsonViews.Generic.class)
     public VinResponse create(@Valid @RequestBody VinRequest vinRequest, BindingResult br){
         if (br.hasErrors()){
             logger.info("erreur validation");

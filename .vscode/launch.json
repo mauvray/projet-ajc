@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BarBisApplication",
+            "request": "launch",
+            "mainClass": "grp1.BarBis.BarBisApplication",
+            "projectName": "BarBis"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
