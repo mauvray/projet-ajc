@@ -57,7 +57,7 @@ public class PlatRestController {
 	}
 
 	@Operation(summary="creation de plat",description="creation un plat necessite nom prix et categorie")
-    @PostMapping({ "", "/inscription" })
+    @PostMapping("")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public PlatResponse create(@Valid @RequestBody PlatRequest plat, BindingResult br) {
 		if (br.hasErrors()) {
