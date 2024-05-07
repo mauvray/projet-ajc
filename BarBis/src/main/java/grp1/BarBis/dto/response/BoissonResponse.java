@@ -26,9 +26,9 @@ public class BoissonResponse {
     private String style;
     @JsonView(JsonViews.Basic.class)
     private String couleur;
-    @JsonView(JsonViews.CocktailAvecSoftEtAlcool.class)
+    @JsonView(JsonViews.CocktailAvecSoftEtOuAlcool.class)
     private BoissonResponse alcool;
-    @JsonView(JsonViews.CocktailAvecSoftEtAlcool.class)
+    @JsonView(JsonViews.CocktailAvecSoftEtOuAlcool.class)
     private BoissonResponse soft;
     
 

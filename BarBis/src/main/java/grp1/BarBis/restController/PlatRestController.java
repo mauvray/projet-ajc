@@ -57,7 +57,7 @@ public class PlatRestController {
 	}
 
 	@Operation(summary="creation de plat",description="creation un plat necessite nom prix et categorie")
-    @PostMapping({ "", "/inscription" })
+    @PostMapping( "" )
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public PlatResponse create(@Valid @RequestBody PlatRequest plat, BindingResult br) {
 		if (br.hasErrors()) {
@@ -77,7 +77,7 @@ public class PlatRestController {
 		return new PlatResponse(platSrv.update(p));
 	}
 
-	@Operation(summary="supression plat",description="suppression d'un plat par son id")
+	@Operation(summary="suppression plat",description="suppression d'un plat par son id")
     @DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {

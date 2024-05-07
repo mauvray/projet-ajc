@@ -54,6 +54,13 @@ public class BoissonRestController {
         return boissonSrv.getByCategorie(categorie).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
+    // @Operation(summary="liste des cocktails détaillée",description="recup des cocktails avec indication de la composition soft et/ou alcool")
+    // @GetMapping("/cocktail")
+    // @JsonView(JsonViews.CocktailAvecSoftEtOuAlcool.class)
+    // public List<BoissonResponse> getCocktail(){
+    //     return boissonSrv.getByCategorie("cocktail").stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
+    // }
+
     @Operation(summary="liste de cocktails selon alcool",description="recup de tous les cocktails ayant un alcool choisi")
     @GetMapping("/cocktail/alcool/{id}")
     @JsonView(JsonViews.Basic.class)
