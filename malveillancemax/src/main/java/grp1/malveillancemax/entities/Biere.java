@@ -3,6 +3,8 @@ package grp1.malveillancemax.entities;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,6 +17,7 @@ public class Biere extends Boisson {
     @Column(name="biere_style")
     private String style;
     @Column(name="biere_service")
+    @Enumerated(EnumType.ORDINAL)
     private ServiceBiere serviceBiere;
 
     public Biere() {

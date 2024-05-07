@@ -18,4 +18,8 @@ public class JsonViews {
 
     public static class CocktailAvecSoft extends Cocktail{}
 
+    public static class Planche extends Generic{}
+
+    public static class Tapas extends Generic{}
+
 }

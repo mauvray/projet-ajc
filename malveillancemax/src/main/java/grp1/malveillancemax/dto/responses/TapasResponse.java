@@ -1,19 +1,20 @@
-package grp1.malveillancemax.dto.requests;
+package grp1.malveillancemax.dto.responses;
 
-import jakarta.validation.constraints.NotBlank;
+import org.springframework.beans.BeanUtils;
 
-public class AlcoolFortRequest {
-    
+import grp1.malveillancemax.dto.responses.JsonViews.Tapas;
+
+public class TapasResponse {
     private Long id;
-    @NotBlank
     private String nom;
     private double prix;
 
-    
+    public TapasResponse(){
 
-    public AlcoolFortRequest() {
     }
-    
+    public TapasResponse(Tapas tapas){
+        BeanUtils.copyProperties(tapas, this);
+    }
     public Long getId() {
         return id;
     }
@@ -33,5 +34,4 @@ public class AlcoolFortRequest {
         this.prix = prix;
     }
 
-    
 }
