@@ -28,6 +28,7 @@ import grp1.BarBis.dto.response.BoissonResponse;
 import grp1.BarBis.dto.response.JsonViews;
 import grp1.BarBis.entities.Boisson;
 import grp1.BarBis.services.BoissonService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 @RestController
@@ -39,20 +40,21 @@ public class BoissonRestController {
     @Autowired
     private BoissonService boissonSrv;
 
+    @Operation(summary="liste des boissons",description="recup de toutes les boissons")
     @GetMapping("")
     @JsonView(JsonViews.Basic.class)
     public List<BoissonResponse> getAll(){
         return boissonSrv.getAll().stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
-
+    @Operation(summary="liste des boissons par categorie",description="recup de toutes les boissons appartenant à la categorie choisie")
     @GetMapping("/categorie/{categorie}")
     @JsonView(JsonViews.Basic.class)
     public List<BoissonResponse> getCategorie(@PathVariable String categorie){
         return boissonSrv.getByCategorie(categorie).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
-
+    @Operation(summary="liste de cocktails selon alcool",description="recup de tous les cocktails ayant un alcool choisi")
     @GetMapping("/cocktail/alcool/{id}")
     @JsonView(JsonViews.Basic.class)
     public List<BoissonResponse> getCocktailByAlcool(@PathVariable Long id){
@@ -60,6 +62,7 @@ public class BoissonRestController {
         return boissonSrv.getByAlcool(alcool).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
+    @Operation(summary="liste des cocktails selon soft",description="recup de tous les cocktails ayant un soft choisi")
     @GetMapping("/cocktail/soft/{id}")
     @JsonView(JsonViews.Basic.class)
     public List<BoissonResponse> getCocktailBySoft(@PathVariable Long id){
@@ -68,19 +71,21 @@ public class BoissonRestController {
     }
 
    
-
+    @Operation(summary="liste de boissons selon nom",description="recup de toutes les boissons avec une chaine de caractere specifique dans le nom")
     @GetMapping("/nom/{nom}")
     @JsonView(JsonViews.Basic.class)
     public List<BoissonResponse> getByNom(@PathVariable String nom){
         return boissonSrv.getByNom(nom).stream().map(b -> new BoissonResponse(b)).collect(Collectors.toList());
     }
 
+    @Operation(summary="boisson a partir d'id",description="recup une boisson a partir de son id")
     @GetMapping("/id/{id}")
     @JsonView(JsonViews.Basic.class)
     public BoissonResponse getByIdBoisson(@PathVariable Long id){
         return new BoissonResponse(boissonSrv.getById(id));
     }
 
+    @Operation(summary="creation boisson",description="creation boisson necessite nom prix et categorie")
     @PostMapping("")
     @JsonView(JsonViews.Basic.class)
     public BoissonResponse create(@Valid @RequestBody BoissonRequest boissonRequest, BindingResult br){
@@ -98,13 +103,14 @@ public class BoissonRestController {
         return new BoissonResponse(boissonSrv.creationBoisson(b));
     }
 
-
+    @Operation(summary="suppression boisson",description="suppression une boisson par son id")
     @DeleteMapping("/{id}")
     @ResponseStatus(code=HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id){
         boissonSrv.deleteBoisson(id);
     }
 
+    @Operation(summary="update une boisson",description="update une boisson par son id")
     @PutMapping("/{id}")
     public BoissonResponse update(@PathVariable Long id, @RequestBody BoissonRequest boissonRequest){
         Boisson b = new Boisson();
