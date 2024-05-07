@@ -1,25 +1,30 @@
 package grp1.malveillancemax.entities;
 
-import java.util.Set;
-
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "cocktail")
 @AttributeOverride(name = "id", column = @Column(name="cocktail_id"))
-@AttributeOverride(name = "name", column = @Column(name="cocktail_name"))
+@AttributeOverride(name = "nom", column = @Column(name="cocktail_nom"))
+@AttributeOverride(name = "prix", column = @Column(name="cocktail_prix"))
 public class Cocktail extends Boisson{
 
-    //@OneToMany
-    @Transient
-    private Set<AlcoolFort> alcools;
-    //@OneToMany
-    @Transient
-    private Set<Soft> softs;
+    @ManyToOne
+    @JoinColumn(name="alcool_id",foreignKey = @ForeignKey(name="cocktail_alcool_id_fk"))
+    private AlcoolFort alcool;
+   
+    @ManyToOne
+    @JoinColumn(name="soft_id",foreignKey = @ForeignKey(name="cocktail_soft_id_fk"))
+    private Soft soft;
+
+    @Column(name="cocktail_description", columnDefinition = "TEXT")
+    private String description;
     
     public Cocktail(){
         
@@ -29,21 +34,22 @@ public class Cocktail extends Boisson{
         super(name, prix);
     }
 
-    public Set<AlcoolFort> getAlcools() {
-        return alcools;
+    public AlcoolFort getAlcool() {
+        return alcool;
     }
 
-    public void setAlcools(Set<AlcoolFort> alcools) {
-        this.alcools = alcools;
+    public void setAlcool(AlcoolFort alcool) {
+        this.alcool = alcool;
     }
 
-    public Set<Soft> getSofts() {
-        return softs;
+    public Soft getSoft() {
+        return soft;
     }
 
-    public void setSofts(Set<Soft> softs) {
-        this.softs = softs;
-    } 
+    public void setSoft(Soft soft) {
+        this.soft = soft;
+    }
+
 
     
  }
