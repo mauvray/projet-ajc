@@ -27,6 +27,10 @@ public class Biere extends Boisson {
         this.serviceBiere = serviceBiere;
     }
 
+    public Biere(String nom, double prix){
+        super(nom, prix);
+    }
+
     public String getStyle() {
         return style;
     }
