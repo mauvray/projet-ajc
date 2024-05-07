@@ -77,7 +77,7 @@ public class PlatRestController {
 		return new PlatResponse(platSrv.update(p));
 	}
 
-	@Operation(summary="supression plat",description="suppression d'un plat par son id")
+	@Operation(summary="suppression plat",description="suppression d'un plat par son id")
     @DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {

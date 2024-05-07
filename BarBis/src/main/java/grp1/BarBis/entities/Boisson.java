@@ -2,6 +2,8 @@ package grp1.BarBis.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +32,7 @@ public class Boisson {
     @Column(name="boisson_categorie", nullable = false)
     private String categorie;
     @Column(name="boisson_service")
+    @Enumerated(EnumType.STRING)
     private Services service;
     @Column(name="boisson_provenance")
     private String provenance;

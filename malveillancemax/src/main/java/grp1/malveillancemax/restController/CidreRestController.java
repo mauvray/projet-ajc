@@ -1,4 +1,4 @@
-package grp1.malveillancemax.restcontroller;
+package grp1.malveillancemax.restController;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

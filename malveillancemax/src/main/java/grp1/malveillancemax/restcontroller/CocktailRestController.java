@@ -54,7 +54,7 @@ public class CocktailRestController {
         .map(cockt-> new CocktailResponse(cockt)).collect(Collectors.toList());
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     @JsonView(JsonViews.Cocktail.class)
     public CocktailResponse getById(@PathVariable Long id){
         return new CocktailResponse(cocktSvc.getById(id));
