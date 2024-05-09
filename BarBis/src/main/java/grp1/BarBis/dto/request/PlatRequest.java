@@ -1,11 +1,11 @@
 package grp1.BarBis.dto.request;
 
-import grp1.BarBis.entities.Plat;
+// import grp1.BarBis.entities.Plat;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+// import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
-import jakarta.validation.constraints.NotBlank;
+// import jakarta.validation.constraints.NotBlank;
 
 public class PlatRequest {
 

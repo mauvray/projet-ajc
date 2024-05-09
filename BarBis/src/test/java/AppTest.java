@@ -1,4 +1,4 @@
-import grp1.BarBis.entities.Boisson;
+// import grp1.BarBis.entities.Boisson;
 
 public class AppTest {
     public static void main(String[] args) {

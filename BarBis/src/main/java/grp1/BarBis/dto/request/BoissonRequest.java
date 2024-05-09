@@ -1,8 +1,8 @@
 package grp1.BarBis.dto.request;
-import grp1.BarBis.entities.Boisson;
+// import grp1.BarBis.entities.Boisson;
 import grp1.BarBis.entities.Services;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+// import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 public class BoissonRequest {

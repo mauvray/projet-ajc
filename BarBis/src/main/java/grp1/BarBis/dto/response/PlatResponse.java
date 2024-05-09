@@ -3,7 +3,7 @@ package grp1.BarBis.dto.response;
 import org.springframework.beans.BeanUtils;
 
 import grp1.BarBis.entities.Plat;
-import grp1.BarBis.entities.Services;
+// import grp1.BarBis.entities.Services;
 
 public class PlatResponse {
 
