@@ -16,7 +16,7 @@ public class BiereRequest {
     @NotNull
     private double prix;
     private String style;
-    private ServiceBiere service;
+    private ServiceBiere serviceBiere;
 
     public BiereRequest(){
 
@@ -51,11 +51,11 @@ public class BiereRequest {
         this.style=style;
     }
 
-    public void setService(ServiceBiere service){
-        this.service=service;
+    public void setServiceBiere(ServiceBiere serviceBiere){
+        this.serviceBiere=serviceBiere;
     }
-    public ServiceBiere getService(){
-        return service;
+    public ServiceBiere getServiceBiere(){
+        return serviceBiere;
     }
 
 }

@@ -58,10 +58,10 @@ public class VinRequest {
         this.couleur=couleur;
     }
 
-    public ServiceVin getService(){
+    public ServiceVin getServiceVin(){
         return service;
     }
-    public void setService(ServiceVin service){
+    public void setServiceVin(ServiceVin service){
         this.service=service;
     }
     

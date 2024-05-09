@@ -11,17 +11,11 @@ import grp1.malveillancemax.entities.Vin;
  * VinResponse
  */
 public class VinResponse {
-    @JsonView(JsonViews.Generic.class)
     private Long id;
-    @JsonView(JsonViews.Generic.class)
     private String nom;
-    @JsonView(JsonViews.Generic.class)
     private double prix;
-    @JsonView(JsonViews.Generic.class)
     private String couleur;
-    @JsonView(JsonViews.Generic.class)
     private String provenance;
-    @JsonView(JsonViews.Generic.class)
     private ServiceVin service;
 
     public VinResponse(){
@@ -68,10 +62,10 @@ public class VinResponse {
         this.couleur=couleur;
     }
 
-    public ServiceVin getService(){
+    public ServiceVin getServiceVin(){
         return service;
     }
-    public void setService(ServiceVin service){
+    public void setServiceVin(ServiceVin service){
         this.service=service;
     }
 

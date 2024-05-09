@@ -25,7 +25,6 @@ import jakarta.validation.Valid;
 
 import grp1.malveillancemax.entities.Vin;
 import grp1.malveillancemax.dto.requests.VinRequest;
-import grp1.malveillancemax.dto.responses.JsonViews;
 import grp1.malveillancemax.dto.responses.VinResponse;
 import grp1.malveillancemax.services.VinService;
 
@@ -63,7 +62,6 @@ public class VinRestController {
 
     @PostMapping("")
     @ResponseStatus(code=HttpStatus.CREATED)
-    @JsonView(JsonViews.Generic.class)
     public VinResponse create(@Valid @RequestBody VinRequest vinRequest, BindingResult br){
         if (br.hasErrors()){
             logger.info("erreur validation");

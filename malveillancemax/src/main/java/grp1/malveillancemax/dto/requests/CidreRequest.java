@@ -47,10 +47,10 @@ public class CidreRequest {
         this.provenance=provenance;
     }
 
-    public ServiceCidre getService(){
+    public ServiceCidre getServiceCidre(){
         return service;
     }
-    public void setService(ServiceCidre service){
+    public void setServiceCidre(ServiceCidre service){
         this.service=service;
     }
     
