@@ -1,7 +1,7 @@
 package grp1.malveillancemax.entities;
 
-import java.util.Set;
-import java.util.HashSet;
+// import java.util.Set;
+// import java.util.HashSet;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
 @AttributeOverride(name = "prix", column = @Column(name = "prix_planche", nullable = false))
 
 public class Planche extends Plat {
-    private Set<String> ingredients;
+    // private Set<String> ingredients;
 
     public Planche() {
 
@@ -29,15 +29,15 @@ public class Planche extends Plat {
 
     public Planche(String nom, Double prix) {
         super(nom, prix);
-        this.ingredients = new HashSet<String>();
+        // this.ingredients = new HashSet<String>();
     }
 
-    public Set<String> getIngredients() {
-        return ingredients;
-    }
+    // public Set<String> getIngredients() {
+    //     return ingredients;
+    // }
 
-    public void setIngredients(Set<String> ingredients) {
-        this.ingredients = ingredients;
-    }
+    // public void setIngredients(Set<String> ingredients) {
+    //     this.ingredients = ingredients;
+    // }
 
 }

@@ -1,16 +1,16 @@
 package grp1.malveillancemax;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+// import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.Test;
+// import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import grp1.malveillancemax.entities.AlcoolFort;
-import grp1.malveillancemax.entities.Cocktail;
-import grp1.malveillancemax.entities.Soft;
-import grp1.malveillancemax.exception.CocktailException;
+// import grp1.malveillancemax.entities.AlcoolFort;
+// import grp1.malveillancemax.entities.Cocktail;
+// import grp1.malveillancemax.entities.Soft;
+// import grp1.malveillancemax.exception.CocktailException;
 import grp1.malveillancemax.repositories.DaoAlcoolFort;
 import grp1.malveillancemax.repositories.DaoCocktail;
 import grp1.malveillancemax.repositories.DaoSoft;

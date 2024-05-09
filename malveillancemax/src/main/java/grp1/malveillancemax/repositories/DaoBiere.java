@@ -1,7 +1,7 @@
 package grp1.malveillancemax.repositories;
 
 import java.util.List;
-import java.util.Optional;
+// import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -15,7 +15,7 @@ public interface DaoBiere extends JpaRepository<Biere, Long> {
 
     List<Biere> findByStyle(String style);
     List<Biere> findByServiceBiere(ServiceBiere serviceBiere);
-    Optional<Biere> findById(Long id);
+    // Optional<Biere> findById(Long id);
     List<Biere> findByNomContainingIgnoreCase(String nom);
 
     

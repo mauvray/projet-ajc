@@ -3,8 +3,6 @@ package grp1.malveillancemax.dto.responses;
 import grp1.malveillancemax.entities.ServiceVin;
 import org.springframework.beans.BeanUtils;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 import grp1.malveillancemax.entities.Vin;
 
 /**
