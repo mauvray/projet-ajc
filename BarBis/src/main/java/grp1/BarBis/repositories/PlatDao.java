@@ -9,7 +9,9 @@ import grp1.BarBis.entities.Plat;
 public interface PlatDao extends JpaRepository<Plat, Long> {
 
     List<Plat> findByNom(String nom);
+
     List<Plat> findByNomContaining(String nom);
+
     List<Plat> findByCategorie(String categorie);
 
 }
